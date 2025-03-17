@@ -20,9 +20,9 @@ UpskillHub is an AI-powered learning roadmap platform that helps learners stream
 - **SQLAlchemy + Alembic** - ORM & Migrations
 - **Pydantic** - Data validation
 - **Redis** - Caching (optional)
-- **Docker** - Containerization
 - **JWT** - Authentication
 - **uv** - Package management
+- **Docker** - Containerization
 
 ## 🏗 Project Structure
 ```
@@ -36,10 +36,11 @@ UpskillHub is an AI-powered learning roadmap platform that helps learners stream
 │   ├── main.py          # App entry point
 │── .env                 # Environment variables
 │── pyproject.toml       # Dependency management (uv)
-│── Dockerfile           # Docker setup
 │── README.md            # Documentation
 │── alembic/             # Database migrations
 │── tests/               # Unit tests
+│── Dockerfile           # Docker setup
+│── docker-compose.yml   # Docker Compose for services
 ```
 
 ## 🔧 Installation & Setup
@@ -58,9 +59,9 @@ uv pip install -r requirements.txt
 ### **3️⃣ Set Up Environment Variables (.env file)**
 Create a `.env` file and add:
 ```env
-DATABASE_URL=postgresql://user:password@localhost:5432/roadmap_db
+DATABASE_URL=postgresql://user:password@db:5432/roadmap_db
 SECRET_KEY=your_secret_key
-REDIS_URL=redis://localhost:6379/0
+REDIS_URL=redis://redis:6379/0
 ```
 
 ### **4️⃣ Run Database Migrations**
@@ -68,22 +69,31 @@ REDIS_URL=redis://localhost:6379/0
 alembic upgrade head
 ```
 
-### **5️⃣ Start the Server**
+### **5️⃣ Start the Server (Without Docker)**
 ```sh
 uvicorn app.main:app --reload
 ```
 API will be available at: `http://127.0.0.1:8000`
 
+## 🐳 Docker Setup
+### **1️⃣ Build and Run the Project**
+```sh
+docker-compose up --build
+```
+This will start:
+- FastAPI backend
+- PostgreSQL database
+- Redis cache
+
+### **2️⃣ Stop the Containers**
+```sh
+docker-compose down
+```
+
 ## 📬 API Testing
 Use **Postman** or the built-in **Swagger UI**:
 ```
 http://127.0.0.1:8000/docs
-```
-
-## 🐳 Docker Setup (Optional)
-To run the project using Docker, use:
-```sh
-docker-compose up --build
 ```
 
 ## ✅ Next Steps
