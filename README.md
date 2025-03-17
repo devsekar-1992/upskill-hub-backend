@@ -102,5 +102,5 @@ http://127.0.0.1:8000/docs
 - Deploy to production
 
 ---
-💡 **Contributors:** Your Name | developersekar1992@gmail.com
+💡 **Contributors:** Gnana Sekar | developersekar1992@gmail.com
 
