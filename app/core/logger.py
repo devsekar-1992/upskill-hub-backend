@@ -1,15 +1,13 @@
-from loguru import logger
 import sys
+
+from loguru import logger
 
 # Remove default logger
 logger.remove()
 
 # Add console logger
 logger.add(
-    sys.stdout,
-    format="{time} | {level} | {message}",
-    level="INFO",
-    colorize=True
+    sys.stdout, format="{time} | {level} | {message}", level="INFO", colorize=True
 )
 
 # Add file logger [Rotating logs, JSON Format]
@@ -19,8 +17,9 @@ logger.add(
     retention="10 days",
     compression="zip",
     level="INFO",
-    serialize=True
+    serialize=True,
 )
+
 
 def get_logger():
     return logger
