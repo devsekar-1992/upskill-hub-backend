@@ -6,4 +6,3 @@ from app.repository.user_repository import UserRespository
 
 async def get_user_service(session: AsyncSession=Depends(get_session)):
     return UserService(UserRespository(session))
-

@@ -32,8 +32,7 @@ class UserRespository:
             db_user.password=pwd_context.hash(db_user.password)
             self.db_session.add(db_user)
             await self.db_session.commit()
-            await self.db_session.refresh(db_user) 
+            await self.db_session.refresh(db_user)
             return db_user
         except Exception as e:
             logger.exception(e)
-                

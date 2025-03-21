@@ -12,7 +12,7 @@ class UserService:
         if existing_user:
                 return True
         return False
-    
+
     async def register_user(self,create_user: UserCreate) -> UserResponse:
         """
         Create a user

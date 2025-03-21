@@ -1,7 +1,7 @@
 """users
 
 Revision ID: upskil001
-Revises: 
+Revises:
 Create Date: 2025-03-20 13:40:48.912940
 
 """

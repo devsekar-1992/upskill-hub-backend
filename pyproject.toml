@@ -27,6 +27,7 @@ dependencies = [
     "markupsafe==3.0.2",
     "mdurl==0.1.2",
     "passlib[bcrypt]>=1.7.4",
+    "pre-commit>=4.2.0",
     "pydantic==2.10.6",
     "pydantic-core==2.27.2",
     "pygments==2.19.1",
